@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
+  get 'welcome/aboutus', to: 'welcome#aboutus', as: 'aboutus'
+
   resources :articles do 
     resources :comments 
   end 
@@ -9,6 +11,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+#Karen added to test all functions with Users 
+  resources :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
