@@ -20,26 +20,13 @@
                     <li><%= link_to "Shop", products_url, class: "active"%></li>
                     <li><%= link_to "About Us", aboutus_url, class: "active"%></li>
                     <li><%= link_to "My Account", products_url, class: "active"%></li>
-                    <li><%= link_to "Checkout", checkout_url, class: "active"%></li>
+                    <li><%= link_to "Checkout (#{current_order.total_items})", basket_path, class: "active"%></li>
                     
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    
-  	<% if current_order %>
-		<p style="border:1px solid black;padding:10px;">
-		  You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
-		  <%= number_to_currency current_order.total_before_tax %>.
-		  <%= link_to "View basket", basket_path %>
-		<%= link_to "Checkout", checkout_path %>
-		  <%= flash[:notice] %>
-		</p>
-	
-	<% end %>
-	
-	
 	</nav>
 	
   	
